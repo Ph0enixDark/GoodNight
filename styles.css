@@ -1,0 +1,147 @@
+/* Resetting margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Centering the content */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+/* Styling the header text */
+header {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Styling the clickable text */
+.click-text {
+    font-size: 28px; /* Larger font size for header */
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    top: 5%; /* Text at the top */
+    width: 100%;
+    text-align: center; /* Ensure the text is centered */
+}
+
+/* Position the gift box */
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px; /* Space from the top so it's not overlapping */
+}
+
+/* Styling the gift box */
+.gift {
+    width: 120px;
+    height: 120px;
+    background-color: #b32d2d; /* Darker red box */
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling the green ribbons forming a plus sign */
+.ribbon {
+    position: absolute;
+    background-color: #32cd32; /* Green ribbons */
+}
+
+.ribbon-horizontal {
+    width: 100%;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ribbon-vertical {
+    width: 20px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Popup styling */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 50px;
+    border: 2px solid #333;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    max-width: 600px; /* Larger width for the popup */
+}
+
+/* Popup text styling */
+.popup p {
+    font-size: 30px; /* Bigger text size */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Button to close the popup */
+#close-popup {
+    background-color: #b32d2d; /* Dark red for close button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+/* Confetti Effect */
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    display: none;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    animation: confetti-fall 3s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+    0% {
+        opacity: 1;
+        transform: translate(0, -50px) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(100px, 100vh) rotate(360deg);
+    }
+}
